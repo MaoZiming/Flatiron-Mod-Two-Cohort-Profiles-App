@@ -14,6 +14,9 @@ Update by Ziming June 29
 
 ************
 
-- Some thing missing: the password field
-- I am not sure how to include the encrypted password field to the user
-- Like we can't just store the password as plain strings right?
+- Password!
+- I just follows the using has_secure lab
+- The password field is named password_digest
+- When we create the user in the seed file, we need to use password: "123", password_confirmation: '123" 
+to create encrypted password!
+See also at https://stackoverflow.com/questions/30894508/create-user-with-encrypted-password-with-dbseed
