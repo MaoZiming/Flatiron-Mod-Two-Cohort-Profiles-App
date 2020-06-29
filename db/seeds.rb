@@ -12,6 +12,7 @@ UserLanguage.destroy_all
 Recommendation.destroy_all
 Language.destroy_all
 Profile.destroy_all
+# Clear the database
 
 cohort1 = Cohort.create(name: "cohort1")
 cohort2 = Cohort.create(name: "cohort2")
@@ -33,6 +34,10 @@ user1.languages << language1
 user1.languages << language2
 user2.languages << language3
 user3.recommenders << user4
+# Add user4 to the list of users that recommend user3;
+# In other words, user4 recommends user3, user3 is recommended by user4
+# This is the equivalent of user4.recommendees << user3
+
 user4.recommenders << user1
 user1.recommenders << user2
 user1.recommenders << user3

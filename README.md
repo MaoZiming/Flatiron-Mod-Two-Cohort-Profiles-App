@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Update by Ziming June 29
 
-Things you may want to cover:
+- Created Model, migration, and seed files
 
-* Ruby version
+- I have created models for Cohort, Language, Profile, Recommendation, User, UserLanguage  Language, User are in many-to-many relationship, the joiner class is UserLanguage
+- User belongs to a Cohort
+- Profile belongs to a User, a User can have multiple Profiles (for example, one profile for Flatiron, one profile for Yale)
 
-* System dependencies
+************
 
-* Configuration
+- The self-referential recommendation model is working. I have written explanation as comments in the model files. Please checkout recommendation.rb and user.rb! 
 
-* Database creation
+************
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Some thing missing: the password field
+- I am not sure how to include the encrypted password field to the user
+- Like we can't just store the password as plain strings right?
