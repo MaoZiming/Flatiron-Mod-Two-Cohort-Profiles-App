@@ -10,7 +10,7 @@ Update by Ziming June 29
 
 ************
 
-- The self-referential recommendation model is working. I have written explanation as comments in the model files. Please checkout recommendation.rb and user.rb! 
+- The self-referential :recommendation model is working. I have written explanation as comments in the model files. Please see recommendation.rb and user.rb! 
 
 ************
 
