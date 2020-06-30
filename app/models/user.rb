@@ -2,7 +2,7 @@ class User < ApplicationRecord
     has_many :user_languages
     has_many :languages, through: :user_languages
     belongs_to :cohort
-    has_many :profiles
+    has_one :profile
 
     # User being the Recommender
     has_many :recommendee_instances, foreign_key: :recommender_id, class_name: 'Recommendation'
