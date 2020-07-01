@@ -1,7 +1,7 @@
 class Recommendation < ApplicationRecord
     
-    belongs_to :recommendee, class_name: 'User', foreign_key: "recommendee_id"
-    belongs_to :recommender, class_name: 'User', foreign_key: "recommender_id"
+    belongs_to :recommendee, class_name: 'Profile', foreign_key: "recommendee_id"
+    belongs_to :recommender, class_name: 'Profile', foreign_key: "recommender_id"
 
     # How I understand this:
     # Many-to-many relationship 

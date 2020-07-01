@@ -5,6 +5,9 @@ class CreateProfiles < ActiveRecord::Migration[6.0]
       t.string :bio
       t.string :major
       t.integer :user_id
+      t.integer :cohort_id
+      t.string :city
+      t.string :university
       t.timestamps
     end
   end

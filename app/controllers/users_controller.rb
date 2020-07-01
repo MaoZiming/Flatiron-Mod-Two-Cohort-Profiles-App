@@ -13,19 +13,20 @@ class UsersController < ApplicationController
     
         if  @user.valid?
           @user.save
-          byebug
-          redirect_to @user
+          # byebug
+          session[:user_id] = @user.id
+          redirect_to '/show'
         else
           redirect_to "/signup"
         end
     end
 
     def show
-
+      @user = User.find(session[:user_id])
     end
 
     def user_params
-        params.permit(:username, :password, :password_confirmation, :cohort)
+        params.permit(:username, :password, :password_confirmation)
     end
         
 

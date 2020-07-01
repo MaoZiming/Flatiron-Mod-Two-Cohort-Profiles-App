@@ -8,7 +8,7 @@
 
 Cohort.destroy_all
 User.destroy_all
-UserLanguage.destroy_all
+ProfileLanguage.destroy_all
 Recommendation.destroy_all
 Language.destroy_all
 Profile.destroy_all
@@ -19,32 +19,32 @@ cohort2 = Cohort.create(name: "cohort2")
 cohort3 = Cohort.create(name: "cohort3")
 cohort4 = Cohort.create(name: "cohort4")
 
-# in seed file, if we want to create encrypted password, we have to use password: ... , password_confirmation: ...
-user1 = User.create(name: "user1", cohort_id: cohort1.id, password: '123', password_confirmation: '123')
-user2 = User.create(name: "user2", cohort_id: cohort1.id, password: '321', password_confirmation: '321')
-user3 = User.create(name: "user3", cohort_id: cohort2.id, password: '111', password_confirmation: '111')
-user4 = User.create(name: "user4", cohort_id: cohort1.id, password: '222', password_confirmation: '222')
-user5 = User.create(name: "user5", cohort_id: cohort3.id, password: '333', password_confirmation: '333')
-user6 = User.create(name: "user6", cohort_id: cohort3.id, password: '444', password_confirmation: '444')
+# # in seed file, if we want to create encrypted password, we have to use password: ... , password_confirmation: ...
+# user1 = User.create(name: "user1", cohort_id: cohort1.id, password: '123', password_confirmation: '123')
+# user2 = User.create(name: "user2", cohort_id: cohort1.id, password: '321', password_confirmation: '321')
+# user3 = User.create(name: "user3", cohort_id: cohort2.id, password: '111', password_confirmation: '111')
+# user4 = User.create(name: "user4", cohort_id: cohort1.id, password: '222', password_confirmation: '222')
+# user5 = User.create(name: "user5", cohort_id: cohort3.id, password: '333', password_confirmation: '333')
+# user6 = User.create(name: "user6", cohort_id: cohort3.id, password: '444', password_confirmation: '444')
 
-language1 = Language.create(name: "language1")
-language2 = Language.create(name: "language2")
-language3 = Language.create(name: "language3")
+# language1 = Language.create(name: "language1")
+# language2 = Language.create(name: "language2")
+# language3 = Language.create(name: "language3")
 
-user1.languages << language1
-user1.languages << language2
-user2.languages << language3
-user3.recommenders << user4
+# user1.languages << language1
+# user1.languages << language2
+# user2.languages << language3
+# user3.recommenders << user4
 
-# Add user4 to the list of users that recommend user3;
-# In other words, user4 recommends user3, user3 is recommended by user4
-# This is the equivalent of user4.recommendees << user3
+# # Add user4 to the list of users that recommend user3;
+# # In other words, user4 recommends user3, user3 is recommended by user4
+# # This is the equivalent of user4.recommendees << user3
 
-user4.recommenders << user1
-user1.recommenders << user2
-user1.recommenders << user3
-user1.recommenders << user4
+# user4.recommenders << user1
+# user1.recommenders << user2
+# user1.recommenders << user3
+# user1.recommenders << user4
 
-profile1 = Profile.create(age: 13, bio: "this is profile1", major: "cs", user_id: user1.id)
-profile2 = Profile.create(age: 23, bio: "this is profile2", major: "english", user_id: user1.id)
-profile3 = Profile.create(age: 43, bio: "this is profile3", major: "cs", user_id: user2.id)
+# profile1 = Profile.create(age: 13, bio: "this is profile1", major: "cs", user_id: user1.id)
+# profile2 = Profile.create(age: 23, bio: "this is profile2", major: "english", user_id: user1.id)
+# profile3 = Profile.create(age: 43, bio: "this is profile3", major: "cs", user_id: user2.id)

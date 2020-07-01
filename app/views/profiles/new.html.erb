@@ -1,15 +1,10 @@
 
-<h1>Create Profile</h1>
+<h1>Create Profile</h1> 
 
-<%= form_with url: "", method: "post" do |f| %>
+<%= form_with url: "/profiles/new", method: "post" do |f| %>
 
-<%= f.label "First Name" %>
-<%= f.text_field :first_name %>
-<br>
-<br>
-
-<%= f.label "Last Name" %>
-<%= f.text_field :last_name  %>
+<%= f.label :name %>
+<%= f.text_field :name %>
 <br>
 <br>
 
@@ -43,6 +38,8 @@
 <br>
 <br>
 
+
+<% if false %>
 <%= f.label :ruby_language, "Ruby" %>
 <%= f.check_box :ruby_language %>
 <br>
@@ -54,6 +51,8 @@
 <br>
 <%= f.label :java_language, "Java" %>
 <%= f.check_box :java_language %>
+
+<% end %>
 <br>
 <br>
 

@@ -3,18 +3,13 @@
 
 <%= form_with url: "/signup", method: "post" do |f| %>
 
-<%= f.label :name %>
-<%= f.text_field :name %>
+<%= f.label :username %>
+<%= f.text_field :username %>
 <br>
 <br>
 
 <%= f.label :password %>
 <%= f.password_field :password %>
-<br>
-<br>
-
-<%= f.label :cohort %>
-<%= f.collection_select :cohort_id, Cohort.all, :id, :name %>
 <br>
 <br>
 

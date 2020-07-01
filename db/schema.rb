@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_01_132603) do
+ActiveRecord::Schema.define(version: 2020_07_01_155731) do
 
   create_table "cohorts", force: :cascade do |t|
     t.string "name"
@@ -24,15 +24,24 @@ ActiveRecord::Schema.define(version: 2020_07_01_132603) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "profile_languages", force: :cascade do |t|
+    t.integer "profile_id"
+    t.integer "language_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.integer "age"
     t.string "bio"
     t.string "major"
     t.integer "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.integer "cohort_id"
     t.string "city"
     t.string "university"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
   end
 
   create_table "recommendations", force: :cascade do |t|
@@ -42,16 +51,8 @@ ActiveRecord::Schema.define(version: 2020_07_01_132603) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "user_languages", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "language_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.integer "cohort_id"
+    t.string "username"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"

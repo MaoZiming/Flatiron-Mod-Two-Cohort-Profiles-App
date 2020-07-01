@@ -2,8 +2,8 @@
 
 <%= form_with url: "/login", method: "post" do |f| %>
 
-<%= f.label :name %>
-<%= f.text_field :name %>
+<%= f.label :username %>
+<%= f.text_field :username %>
 
 <%= f.label :password %>
 <%= f.password_field :password %>
@@ -11,3 +11,5 @@
 <%= f.submit "Login"%>
 
 <% end %>
+
+<%= link_to 'Sign up', '/signup' %>
