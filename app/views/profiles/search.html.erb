@@ -13,3 +13,43 @@ Major: <%= @profile.major%>
 <br>
 Cohort: <%= @profile.cohort.name%>
 <br>
+
+
+
+
+
+<% if @profile.recommenders %>
+<ul>
+    <% @profile.recommenders.each do |recommender| %>
+    <li>
+        Recommender: <%= recommender.name%>, Comments: <%= Recommendation.search_recommendation(recommender,@profile).content%>
+    </li>
+    <% end %>
+
+</ul>
+<% end %>
+
+<% if @profile.recommendees %>
+<ul>
+    <% @profile.recommendees.each do |recommendee| %>
+    <li>
+        Recommended: <%= recommendee.name%>, Comments: <%= Recommendation.search_recommendation(@profile,recommendee).content%>
+    </li>
+    <% end %>
+
+</ul>
+<% end %>
+
+<br>
+<br>
+
+<% if @user.profile != @profile && !Recommendation.search_recommendation(@user.profile,@profile) %>
+Add Recommendations
+<%= form_with url: "/profiles/#{@profile.id}", method: "post" do |f|%>
+<%= f.label "Content"%>
+<%= f.text_field :content%>
+<%= f.submit "Submit Recommendation"%>
+<% end %>
+<% end %>
+
+<%= link_to 'Cohort Page', '/cohorts' %>

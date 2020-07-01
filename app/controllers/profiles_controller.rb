@@ -54,10 +54,23 @@ class ProfilesController < ApplicationController
 
     def search
       @profile = Profile.find(params[:id])
+      @user = User.find(session[:user_id])
     end
         
-
+    def recommend
+      profile = Profile.find(params[:id])
+      user = User.find(session[:user_id])
+      user_profile = user.profile
+      r = Recommendation.create(recommender_id: user_profile.id, recommendee_id: profile.id, content: params.permit(:content).require('content'))
+      # byebug
+      redirect_to "/profiles/#{profile.id}"
+    end
       
+
+    def filter
+      
+    end
+
     def profile_params
       params.permit(:name, :age, :bio, :cohort_id, :major, :city, :university)
     end
