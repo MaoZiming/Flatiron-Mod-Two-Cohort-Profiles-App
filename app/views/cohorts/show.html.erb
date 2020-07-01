@@ -2,7 +2,7 @@
 
 <ul>
   <% @cohort.profiles.each do |profile| %>
-    <li> <%= profile.name %> 
+    <li> <%= link_to profile.name, "/profiles/#{profile.id}" %> 
     </li>
   <% end %>
 </ul>

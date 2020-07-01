@@ -16,7 +16,8 @@ Rails.application.routes.draw do
   post "/profiles/new", to: "profiles#create"
   get "/profiles/show", to: "profiles#show"
   get "/profiles/edit", to: "profiles#edit"
-  post "profiles/edit", to: "profiles#update"
+  post "/profiles/edit", to: "profiles#update"
+  get '/profiles/:id', to: "profiles#search"
 
   get '/cohorts', to: "cohorts#index"
   get "/cohorts/:id", to: "cohorts#show"

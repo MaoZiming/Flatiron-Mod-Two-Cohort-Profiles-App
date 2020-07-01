@@ -33,9 +33,6 @@ class ProfilesController < ApplicationController
       @profile = @user.profile
     end
 
-    def profile_params
-        params.permit(:name, :age, :bio, :cohort_id, :major, :city, :university)
-    end
 
     def edit
       @user = User.find(session[:user_id])
@@ -54,6 +51,14 @@ class ProfilesController < ApplicationController
         redirect_to "/profiles/edit"
       end
     end
+
+    def search
+      @profile = Profile.find(params[:id])
+    end
         
 
+      
+    def profile_params
+      params.permit(:name, :age, :bio, :cohort_id, :major, :city, :university)
+    end
 end
