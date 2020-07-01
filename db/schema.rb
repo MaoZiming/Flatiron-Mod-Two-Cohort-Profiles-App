@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_29_203639) do
+ActiveRecord::Schema.define(version: 2020_07_01_132603) do
 
   create_table "cohorts", force: :cascade do |t|
     t.string "name"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 2020_06_29_203639) do
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "city"
+    t.string "university"
   end
 
   create_table "recommendations", force: :cascade do |t|
