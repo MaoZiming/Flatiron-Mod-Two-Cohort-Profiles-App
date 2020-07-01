@@ -1,24 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Update by Ziming June 29
 
-Things you may want to cover:
+- Created Model, migration, and seed files
 
-* Ruby version
+- I have created models for Cohort, Language, Profile, Recommendation, User, UserLanguage  Language, User are in many-to-many relationship, the joiner class is UserLanguage
+- User belongs to a Cohort
+- Profile belongs to a User, a User can have multiple Profiles (for example, one profile for Flatiron, one profile for Yale)
 
-* System dependencies
+************
 
-* Configuration
+- The self-referential :recommendation model is working. I have written explanation as comments in the model files. Please see recommendation.rb and user.rb! 
 
-* Database creation
+************
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Password!
+- I just follows the using has_secure lab
+- The password field is named password_digest
+- When we create the user in the seed file, we need to use password: "123", password_confirmation: '123" 
+to create encrypted password!
+See also at https://stackoverflow.com/questions/30894508/create-user-with-encrypted-password-with-dbseed
