@@ -67,9 +67,9 @@ class ProfilesController < ApplicationController
     end
       
 
-    def filter
+    # def filter
       
-    end
+    # end
 
     def profile_params
       params.permit(:name, :age, :bio, :cohort_id, :major, :city, :university)
