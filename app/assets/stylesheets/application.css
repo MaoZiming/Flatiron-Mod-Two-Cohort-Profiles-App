@@ -1,44 +1,9 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
 
- .mediaViewInfo {
-    --web-view-name: Profile;
-    --web-view-id: Profile;
-    --web-scale-on-resize: true;
-    --web-enable-deep-linking: true;
-}
-:root {
-    --web-view-ids: Profile;
-}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     border: none;
-}
-#Profile {
-    position: absolute;
-    width: 1280px;
-    height: 1827px;
-    background-color: rgba(255,255,255,1);
-    overflow: hidden;
-    --web-view-name: Profile;
-    --web-view-id: Profile;
-    --web-scale-on-resize: true;
-    --web-enable-deep-linking: true;
 }
 #Group_178 {
     position: absolute;
@@ -50,19 +15,14 @@
 }
 #Group_176 {
     position: absolute;
-    width: 753.579px;
-    height: 1528px;
     left: 364.428px;
     top: 48px;
-    overflow: visible;
 }
 #Introduction {
     left: 0px;
     top: 0px;
     position: absolute;
     overflow: hidden;
-    width: 280.67px;
-    height: 34.420894622802734px;
     text-align: left;
     font-family: Montserrat;
     font-style: normal;
@@ -70,7 +30,7 @@
     font-size: 30px;
     color: rgba(16,114,237,1);
 }
-#Hey_my_name_is_Joao_and_Im_an_ {
+#bio {
     left: 0px;
     top: 50.985px;
     position: absolute;
@@ -91,7 +51,7 @@
     width: 719px;
     height: 213px;
     left: 13.572px;
-    top: 1216px;
+    top: 670px;
     overflow: visible;
 }
 #Rectangle_7 {
@@ -141,6 +101,7 @@
 }
 #Image_3 {
     position: absolute;
+    z-index: 9000;
     width: 102px;
     height: 102px;
     left: 15px;
@@ -152,7 +113,7 @@
     width: 220px;
     height: 49px;
     left: 262.572px;
-    top: 1479px;
+    top: 940px;
     overflow: visible;
 }
 #Rectangle_12 {
@@ -187,7 +148,7 @@
     width: 719px;
     height: 213px;
     left: 13.572px;
-    top: 962px;
+    top: 400px;
     overflow: visible;
 }
 #Rectangle_7_w {
@@ -255,7 +216,7 @@
     top: 324px;
 }
 #ID21_years_old {
-    left: 86.984px;
+    left: 50px;
     top: 475.091px;
     position: absolute;
     overflow: visible;
@@ -269,7 +230,7 @@
     color: rgba(255,255,255,1);
 }
 #Lisbon {
-    left: 83.984px;
+    left: 50px;
     top: 514.827px;
     position: absolute;
     overflow: visible;
@@ -283,11 +244,10 @@
     color: rgba(255,255,255,1);
 }
 #Yale_University {
-    left: 86.984px;
+    left: 50px;
     top: 559.907px;
     position: absolute;
     overflow: visible;
-    width: 150.265px;
     height: 34.420894622802734px;
     text-align: left;
     font-family: Montserrat;
@@ -297,8 +257,8 @@
     color: rgba(255,255,255,1);
 }
 #Joao_Cardoso {
-    left: 22px;
-    top: 328px;
+    left: 30px;
+    top: 340px;
     position: absolute;
     overflow: visible;
     width: 234px;
@@ -311,8 +271,8 @@
     color: rgba(255,255,255,1);
 }
 #Gangster {
-    left: 22px;
-    top: 419px;
+    left: 30px;
+    top: 430px;
     position: absolute;
     overflow: visible;
     width: 234px;
@@ -480,20 +440,6 @@
     top: 0px;
     overflow: visible;
 }
-#ENTJ {
-    left: 86.984px;
-    top: 607.907px;
-    position: absolute;
-    overflow: visible;
-    width: 150.265px;
-    height: 34.420894622802734px;
-    text-align: left;
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 20px;
-    color: rgba(255,255,255,1);
-}
 #Languages {
     left: 144.783px;
     top: 842.499px;
@@ -531,46 +477,20 @@
     overflow: visible;
 }
 #Group_10 {
+    fill: rgba(16,114,237,1);   
     opacity: 0.2;
     position: absolute;
-    width: 747.262px;
+    width: 1000px;
     height: 117.134px;
     left: 45.85px;
     top: 29.155px;
     overflow: visible;
 }
-#Rectangle_1 {
-    fill: rgba(16,114,237,1);
-}
-.Rectangle_1 {
-    position: absolute;
-    overflow: visible;
-    width: 747.262px;
-    height: 117.134px;
-    left: 0px;
-    top: 0px;
-}
-#Cuota {
-    left: 321.562px;
-    top: 44.762px;
-    position: absolute;
-    overflow: visible;
-    width: 94px;
-    white-space: nowrap;
-    text-align: left;
-    font-family: Segoe UI;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 35px;
-    color: rgba(16,114,237,1);
-}
-#Am_I_a_good_person_No_But_do_I {
+#Quote {
     left: 103.813px;
     top: 57.273px;
     position: absolute;
     overflow: visible;
-    width: 690.665px;
-    height: 68.84178924560547px;
     line-height: 30px;
     margin-top: -5px;
     text-align: left;

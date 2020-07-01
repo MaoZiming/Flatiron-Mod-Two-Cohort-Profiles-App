@@ -1,0 +1,28 @@
+
+<h1>Sign Up</h1>
+
+<%= form_with url: "/signup", method: "post" do |f| %>
+
+<%= f.label :name %>
+<%= f.text_field :name %>
+<br>
+<br>
+
+<%= f.label :password %>
+<%= f.password_field :password %>
+<br>
+<br>
+
+<%= f.label :cohort %>
+<%= f.collection_select :cohort_id, Cohort.all, :id, :name %>
+<br>
+<br>
+
+<%= f.label :password_confirmation %>
+<%= f.password_field :password_confirmation %>
+<br>
+<br>
+
+<%= f.submit "SignUp"%>
+
+<% end %>
