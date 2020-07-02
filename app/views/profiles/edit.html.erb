@@ -4,6 +4,17 @@
 <div class="wrapper fadeInDown">
 <div id="formContent">
 
+<% if flash[:errors] %>
+    <ul>
+    <% flash[:errors].each do |error| %>
+        <li>
+            <%= error %>
+        </li>
+    <% end %>    
+    </ul>
+
+<% end %>
+
 <%= form_with url: "/profiles/edit", method: "post" do |f| %>
 
 
