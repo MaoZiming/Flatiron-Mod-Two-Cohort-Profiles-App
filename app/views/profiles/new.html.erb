@@ -1,61 +1,30 @@
+  <%= stylesheet_link_tag    'form', media: 'all' %>
 
-<h1>Create Profile</h1> 
+<div class="wrapper fadeInDown">
+<div id="formContent">
 
 <%= form_with url: "/profiles/new", method: "post" do |f| %>
 
-<%= f.label :name %>
-<%= f.text_field :name %>
-<br>
-<br>
+<%= f.text_field :name, placeholder: "Full Name"  %>
 
-<%= f.label :age %>
-<%= f.number_field :age %>
-<br>
-<br>
+<%= f.text_field :age, placeholder: "Age" %>
 
-<%= f.label :university %>
-<%= f.text_field :university %>
-<br>
-<br>
+<%= f.text_field :university, placeholder: "University" %>
 
-<%= f.label :city %>
-<%= f.text_field :city %>
-<br>
-<br>
+<%= f.text_field :city, placeholder: "City" %>
 
-<%= f.label "Short Introduction" %>
-<%= f.text_field :bio  %>
-<br>
-<br>
+<%= f.text_field :bio, placeholder: "Short Introduction"  %>
 
-<%= f.label :major %>
-<%= f.text_field :major  %>
-<br>
-<br>
+<%= f.text_field :major, placeholder: "major"  %>
 
-<%= f.label :cohort %>
+<br><br>
+
+
 <%= f.collection_select :cohort_id, Cohort.all, :id, :name %>
-<br>
-<br>
 
-
-<% if false %>
-<%= f.label :ruby_language, "Ruby" %>
-<%= f.check_box :ruby_language %>
 <br>
-<%= f.label :python_language, "Python" %>
-<%= f.check_box :python_language %>
-<br>
-<%= f.label :HTML5_language, "HTML5" %>
-<%= f.check_box :HTML5_language %>
-<br>
-<%= f.label :java_language, "Java" %>
-<%= f.check_box :java_language %>
-
-<% end %>
-<br>
-<br>
-
 <%= f.submit "Create Profile"%>
 
 <% end %>
+</div>
+</div>

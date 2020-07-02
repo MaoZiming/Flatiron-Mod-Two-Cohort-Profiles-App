@@ -1,15 +1,24 @@
-<h1>Login Page</h1>
+  <%= stylesheet_link_tag    'form', media: 'all' %>
 
+
+<div class="wrapper fadeInDown">
+<div id="formContent">
 <%= form_with url: "/login", method: "post" do |f| %>
 
-<%= f.label :username %>
-<%= f.text_field :username %>
+<%= f.text_field :username, class: "fadeIn first", placeholder: "username" %>
+<br>
+<%= f.password_field :password, class: "fadeIn second", placeholder: "password" %>
 
-<%= f.label :password %>
-<%= f.password_field :password %>
+<br>
+<br>
+<%= f.submit "Login", class: "fadeIn third"%>
 
-<%= f.submit "Login"%>
+ <div id="formFooter">
+ 
+    <%= link_to 'Sign up', '/signup', class: "underlineHover link" %>
+</div>
 
 <% end %>
+</div>
+</div>
 
-<%= link_to 'Sign up', '/signup' %>
