@@ -6,7 +6,7 @@
 <div class="col-sm-4">
 	<!-- Category -->
 	<div class="single category">
-		<h3 class="side-title">Graduates</h3>
+		<h3 class="side-title"><%= @cohort.name %></h3>
 		<ul class="list-unstyled">
       <% @cohort.profiles.each do |profile| %>
         <li> <%= link_to profile.name, "/profiles/#{profile.id}" %> 

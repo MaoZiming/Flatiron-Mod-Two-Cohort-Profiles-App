@@ -1,5 +1,20 @@
 # README
 
+Update by Ziming July 2
+
+To do list:
+
+- User chooses not to upload the images
+- Seed files
+- More class methods (required by the project guideline)
+    - It could be display number of languages, colleges, on the cohort show page
+- Sign-up, Login page validation & display error messages
+- Profiles/show page requires login and completed profiles
+- Cannot Login after signup? 
+
+
+*******************
+
 Update by Ziming June 29
 
 - Created Model, migration, and seed files

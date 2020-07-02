@@ -65,7 +65,7 @@
                         
                         <div class="p-4 bg-light rounded shadow-sm">
                         <p class="font-italic mb-0">
-                            Recommender: <%= recommender.name%>, Comments: <%= Recommendation.search_recommendation(recommender,@profile).content%>
+                            <%= recommender.name%> commented:  <%= Recommendation.search_recommendation(recommender,@profile).content%>
                         </div>
                         <br>
                         <% end %>
@@ -79,7 +79,7 @@
                         
                         <div class="p-4 bg-light rounded shadow-sm">
                         <p class="font-italic mb-0">
-                            Recommendee: <%= recommendee.name%>, Comments: <%= Recommendation.search_recommendation(@profile, recommendee).content%>
+                            Recommended: <%= recommendee.name%>, Comments: <%= Recommendation.search_recommendation(@profile, recommendee).content%>
                         </div>
                         <br>
                         <% end %>
