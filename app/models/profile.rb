@@ -21,5 +21,4 @@ class Profile < ApplicationRecord
 
     # But honestly, I won't worry too much about self-referential association, since these are out of our course syllabus.
 
-
 end

@@ -67,9 +67,10 @@ class ProfilesController < ApplicationController
     end
       
 
-    # def filter
-      
-    # end
+    def filter
+      # @q = Profile.ransack(params[:q])
+      # @profile = @q.result(distinct: true)    
+    end
 
     def profile_params
       params.permit(:name, :age, :bio, :cohort_id, :major, :city, :university)
