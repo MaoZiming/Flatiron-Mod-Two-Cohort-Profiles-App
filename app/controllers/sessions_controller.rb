@@ -9,10 +9,10 @@ class SessionsController < ApplicationController
     def create
         # byebug
         @user = User.find_by(username: params[:username])
-
+        # byebug
         if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
-            byebug
+            
             if !@user.profile
                 redirect_to '/profiles/new'
             else

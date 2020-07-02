@@ -11,6 +11,7 @@ To do list:
 - Sign-up, Login page validation & display error messages
 - Update pictures
 - Bug login has to reenter the profiles info?
+- Unique username
 
 *******************
 
