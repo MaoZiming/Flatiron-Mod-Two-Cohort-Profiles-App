@@ -8,4 +8,7 @@ class User < ApplicationRecord
     # For example, 
     # > User.all.first.password_digest
     #    => "$2a$10$uvDbKM4xUdJIdz1W6dKL7.MGZ.G5d0UD9N2VEQdJv6Zc.pDvAqH0K"
+
+    validates :username, uniqueness: true
+
 end

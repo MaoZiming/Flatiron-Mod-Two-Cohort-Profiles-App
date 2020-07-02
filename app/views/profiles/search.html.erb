@@ -14,14 +14,18 @@
                         <h4 class="mt-0 mb-0">
                         <%= @profile.name%>
                         </h4>
-                        <p class="small mb-0"> <i class="fa fa-map-marker mr-2"></i>
-                        <%= @profile.city%>
+                        <p class="x-small mb-0"> 
+                        <b> </b><%= @profile.city%>
                         </p>
-                        <p class="small mb-4"> <i class="fa fa-map-marker mr-2"></i>
-                        <b>Languages: </b>
+                        <p class="small mb-0"> <i class="fas fa-code"></i>
+                        <b> </b>
                         <% @profile.languages.each do |language|%>
                             <%= language.name %> 
                         <% end %>
+                        </p>
+                        <p class="small mb-3"> <i class="fas fa-user-friends"></i>
+                        <b> </b><%= @profile.cohort.name %>
+                    
                         </p>
                     </div>
                 </div>
@@ -30,20 +34,14 @@
             <div class="bg-light p-4 d-flex justify-content-end text-center">
                 <ul class="list-inline mb-0">
                     <li class="list-inline-item">
-                        <h5 class="font-weight-bold mb-0 d-block">Age</h5><small class="text-muted"> <i class="fa fa-picture-o mr-1"></i><%= @profile.age %></small>
+                        <h5 class="font-weight-bold mb-0 d-block">Age</h5><small class="text-muted"> <%= @profile.age %></small>
                     </li>
                     <li class="list-inline-item">
-                        <h5 class="font-weight-bold mb-0 d-block">University</h5><small class="text-muted"> <i class="fa fa-user-circle-o mr-1"></i><%= @profile.university%></small>
+                        <h5 class="font-weight-bold mb-0 d-block">University</h5><small class="text-muted"> <%= @profile.university%></small>
                     </li>
                     <li class="list-inline-item">
-                        <h5 class="font-weight-bold mb-0 d-block">Major</h5><small class="text-muted"> <i class="fa fa-user-circle-o mr-1"></i><%= @profile.major%></small>
-                    </li>               
-                    <li class="list-inline-item">
-                        <h5 class="font-weight-bold mb-0 d-block">
-                        Cohort
-                        </h5>
-                        <small class="text-muted"> <i class="fa fa-user-circle-o mr-1"></i><%= @profile.cohort.name%></small>
-                    </li>       
+                        <h5 class="font-weight-bold mb-0 d-block">Major</h5><small class="text-muted"> <%= @profile.major%></small>
+                    </li>                    
                 </ul>
             </div>
 
@@ -51,7 +49,7 @@
                 <div class="py-4">
                     <h5 class="mb-3">Bio</h5>
                     <div class="p-4 bg-light rounded shadow-sm">
-                        <p class="font-italic mb-0"><%= @profile.bio %></p>
+                        <p class="font-italic mb-0" style="word-wrap: break-word;"><%= @profile.bio %></p>
                     </div>
                     <br>
                   
@@ -60,7 +58,7 @@
                         <% @profile.recommenders.each do |recommender| %>
                         
                         <div class="p-4 bg-light rounded shadow-sm">
-                        <p class="font-italic mb-0">
+                        <p class="font-italic mb-0 " style="word-wrap: break-word;">
                             <%= recommender.name%> commented:  <%= Recommendation.search_recommendation(recommender,@profile).content%>
 
                         </div>
@@ -75,14 +73,14 @@
                         <% @profile.recommendees.each do |recommendee| %>
                         
                         <div class="p-4 bg-light rounded shadow-sm">
-                        <p class="font-italic mb-0">
+                        <p class="font-italic mb-0 " style="word-wrap: break-word;">
                             Recommended: <%= recommendee.name%>, Comments: <%= Recommendation.search_recommendation(@profile, recommendee).content%>
                         </div>
                         <br>
                         <% end %>
                     
                     <% end %>
-                    <br>
+                    
                     <% if @user.profile != @profile && !Recommendation.search_recommendation(@user.profile,@profile) %>
                     <%= form_with url: "/profiles/#{@profile.id}", method: "post" do |f|%>
                         <%= f.text_field :content, placeholder: "Add Recommendation"%>

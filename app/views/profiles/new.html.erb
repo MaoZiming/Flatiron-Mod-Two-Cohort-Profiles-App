@@ -5,13 +5,14 @@
 
 
 <% if flash[:errors] %>
-    <ul>
+    
     <% flash[:errors].each do |error| %>
-        <li>
-            <%= error %>
-        </li>
+        <div class="alert alert-danger" role="alert">
+         <%= error %>
+      </div>       
+  
     <% end %>    
-    </ul>
+    
 
 <% end %>
 
@@ -25,7 +26,7 @@
 
 <%= f.text_field :city, placeholder: "City" %>
 
-<%= f.text_field :bio, placeholder: "Short Introduction"  %>
+<%= f.text_area :bio, placeholder: "Bio (min: 10 chars)"  %>
 
 <%= f.text_field :major, placeholder: "major"  %>
 <%= f.label "Upload Profile Picture:" %><br>

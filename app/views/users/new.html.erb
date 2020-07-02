@@ -3,6 +3,20 @@
 
 <div class="wrapper fadeInDown">
 <div id="formContent">
+
+<% if flash[:errors] %>
+    
+    <% flash[:errors].each do |error| %>
+        <div class="alert alert-danger" role="alert">
+         <%= error %>
+      </div>       
+  
+    <% end %>    
+    
+
+<% end %>
+
+
 <%= form_with url: "/signup", method: "post" do |f| %>
 
 <%= f.text_field :username, placeholder: "username", class: "fadeIn" %>

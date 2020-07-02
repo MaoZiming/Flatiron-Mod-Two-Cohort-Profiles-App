@@ -79,6 +79,7 @@ class ProfilesController < ApplicationController
     end
 
     def profile_params
+      params[:age] = params[:age].to_i
       params.permit(:name, :age, :bio, :cohort_id, :major, :city, :university,  :image, language_ids: [])
     end
 end
