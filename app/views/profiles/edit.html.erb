@@ -1,5 +1,5 @@
 
-<h1>Create Profile</h1> 
+<h1>Edit Profile</h1> 
 
 <%= form_with url: "/profiles/edit", method: "post" do |f| %>
 
@@ -23,8 +23,13 @@
 <br>
 <br>
 
-<%= f.label "Short Introduction" %>
+<%= f.label "Short Introduction:" %>
 <%= f.text_field :bio, value: @profile.bio  %>
+<br>
+<br>
+
+<%= f.label "Upload Profile Picture:" %><br>
+<%= f.file_field :image  %>
 <br>
 <br>
 

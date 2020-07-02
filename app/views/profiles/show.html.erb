@@ -1,6 +1,8 @@
+
+
+<%= image_tag url_for(@profile.image), size: "150x150", :style => "float:right" %>
 Name: <%= @profile.name%>
 <br>
-
 Age: <%= @profile.age%>
 <br>
 University: <%= @profile.university%>
@@ -13,8 +15,9 @@ Major: <%= @profile.major%>
 <br>
 Cohort: <%= @profile.cohort.name%>
 <br>
-Languages: <%= @profile.languages.name%>
+Languages: <%= @profile.language_id%>
 <br>
+
 
 <%= link_to 'User Page', '/show' %>
 <br>

@@ -4,7 +4,7 @@ class Profile < ApplicationRecord
 
     has_many :profile_languages
     has_many :languages, through: :profile_languages
-
+    has_one_attached :image
     # User being the Recommender
     has_many :recommendee_instances, foreign_key: :recommender_id, class_name: 'Recommendation'
     has_many :recommendees, through: :recommendee_instances
