@@ -1,11 +1,24 @@
-<h1>Cohort graduates</h1>
+   <%= stylesheet_link_tag    'cohort', media: 'all' %>
+<!-- https://bootsnipp.com/snippets/BqVdE -->
 
-<ul>
-  <% @cohort.profiles.each do |profile| %>
-    <li> <%= link_to profile.name, "/profiles/#{profile.id}" %> 
-    </li>
-  <% end %>
-</ul>
+<div class="container">
+<div class="row">
+<div class="col-sm-4">
+	<!-- Category -->
+	<div class="single category">
+		<h3 class="side-title">Graduates</h3>
+		<ul class="list-unstyled">
+      <% @cohort.profiles.each do |profile| %>
+        <li> <%= link_to profile.name, "/profiles/#{profile.id}" %> 
+        </li>
+      <% end %>
+		</ul>
+      <br>
+       <%= link_to 'Cohorts', '/cohorts', class: 'btn btn-sm btn-dark', style: 'float: right' %>
+       <br>
+   </div>
 
-<%= link_to 'Cohort_page', '/cohorts' %>
-<%= link_to 'User_page', '/show' %>
+
+</div> 
+</div>
+</div>

@@ -1,55 +1,104 @@
-Name: <%= @profile.name%>
-<br>
+<%= stylesheet_link_tag    'profile', media: 'all' %>
+<%-# Template credit: https://bootstrapious.com/p/bootstrap-profile-page-%>
+<div class="row py-5 px-4">
+    <div class="col-xl-4 col-md-6 col-sm-10 mx-auto">
 
-Age: <%= @profile.age%>
-<br>
-University: <%= @profile.university%>
-<br>
-City: <%= @profile.city%>
-<br>
-Bio: <%= @profile.bio%>
-<br>
-Major: <%= @profile.major%>
-<br>
-Cohort: <%= @profile.cohort.name%>
-<br>
+        <!-- Profile widget -->
+        <div class="bg-white shadow rounded overflow-hidden">
+            <div class="px-4 pt-0 pb-4 bg-dark">
+                <div class="media align-items-end profile-header">
+                    <div class="profile mr-3">
+                        <img src="<%= url_for(@profile.image)%>" alt="..." width="130" class="rounded mb-2 img-thumbnail">
+                    </div>
+                    <div class="media-body mb-5 text-white">
+                        <h4 class="mt-0 mb-0">
+                        <%= @profile.name%>
+                        </h4>
+                        <p class="small mb-0"> <i class="fa fa-map-marker mr-2"></i>
+                        <%= @profile.city%>
+                        </p>
+                        <p class="small mb-4"> <i class="fa fa-map-marker mr-2"></i>
+                        <b>Languages: </b>
+                        <% @profile.languages.each do |language|%>
+                            <%= language.name %>,
+                        <% end %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-light p-4 d-flex justify-content-end text-center">
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item">
+                        <h5 class="font-weight-bold mb-0 d-block">Age</h5><small class="text-muted"> <i class="fa fa-picture-o mr-1"></i><%= @profile.age %></small>
+                    </li>
+                    <li class="list-inline-item">
+                        <h5 class="font-weight-bold mb-0 d-block">University</h5><small class="text-muted"> <i class="fa fa-user-circle-o mr-1"></i><%= @profile.university%></small>
+                    </li>
+                    <li class="list-inline-item">
+                        <h5 class="font-weight-bold mb-0 d-block">Major</h5><small class="text-muted"> <i class="fa fa-user-circle-o mr-1"></i><%= @profile.major%></small>
+                    </li>               
+                    <li class="list-inline-item">
+                        <h5 class="font-weight-bold mb-0 d-block">
+                        Cohort
+                        </h5>
+                        <small class="text-muted"> <i class="fa fa-user-circle-o mr-1"></i><%= @profile.cohort.name%></small>
+                    </li>       
+                </ul>
+            </div>
+
+            <div class="py-4 px-4">
+                <div class="py-4">
+                    <h5 class="mb-3">Bio</h5>
+                    <div class="p-4 bg-light rounded shadow-sm">
+                        <p class="font-italic mb-0"><%= @profile.bio %></p>
+                    </div>
+                    <br>
+                  
+                    <% if !@profile.recommenders.empty? %>
+                        <h5 class="mb-3">Recommenders: <%= @profile.recommenders.size %></h5>
+                        <% @profile.recommenders.each do |recommender| %>
+                        
+                        <div class="p-4 bg-light rounded shadow-sm">
+                        <p class="font-italic mb-0">
+                            Recommender: <%= recommender.name%>, Comments: <%= Recommendation.search_recommendation(recommender,@profile).content%>
+                        </div>
+                        <br>
+                        <% end %>
+                    
+                    <% end %>
+                    
+                    <% if !@profile.recommendees.empty? %>
+                    <br>
+                        <h5 class="mb-3">Recommended: <%= @profile.recommendees.size %></h5>
+                        <% @profile.recommendees.each do |recommendee| %>
+                        
+                        <div class="p-4 bg-light rounded shadow-sm">
+                        <p class="font-italic mb-0">
+                            Recommendee: <%= recommendee.name%>, Comments: <%= Recommendation.search_recommendation(@profile, recommendee).content%>
+                        </div>
+                        <br>
+                        <% end %>
+                    
+                    <% end %>
+                    <br>
+                    <% if @user.profile != @profile && !Recommendation.search_recommendation(@user.profile,@profile) %>
+                    <%= form_with url: "/profiles/#{@profile.id}", method: "post" do |f|%>
+                        <%= f.text_field :content, placeholder: "Add Recommendation"%>
+                        
+                    <%= f.submit "Submit", class: "btn btn-outline-dark"%>
+                    <% end %>
+                    <% end %>
 
 
 
+                </div>
+            </div>
+            <%= link_to 'Log out', '/logout', class: 'btn btn-dark mr-3 mb-3',style: "float: right" %>
+            <%= link_to 'Cohort Page', '/cohorts', class: 'btn btn-dark mr-3 mb-3',style: "float: right" %>
+            <%= link_to 'My Page', '/profiles/show', class: 'btn btn-dark mr-3 mb-3',style: "float: right" %>
+            
+        </div><!-- End profile widget -->
 
-
-<% if @profile.recommenders %>
-<ul>
-    <% @profile.recommenders.each do |recommender| %>
-    <li>
-        Recommender: <%= recommender.name%>, Comments: <%= Recommendation.search_recommendation(recommender,@profile).content%>
-    </li>
-    <% end %>
-
-</ul>
-<% end %>
-
-<% if @profile.recommendees %>
-<ul>
-    <% @profile.recommendees.each do |recommendee| %>
-    <li>
-        Recommended: <%= recommendee.name%>, Comments: <%= Recommendation.search_recommendation(@profile,recommendee).content%>
-    </li>
-    <% end %>
-
-</ul>
-<% end %>
-
-<br>
-<br>
-
-<% if @user.profile != @profile && !Recommendation.search_recommendation(@user.profile,@profile) %>
-Add Recommendations
-<%= form_with url: "/profiles/#{@profile.id}", method: "post" do |f|%>
-<%= f.label "Content"%>
-<%= f.text_field :content%>
-<%= f.submit "Submit Recommendation"%>
-<% end %>
-<% end %>
-
-<%= link_to 'Cohort Page', '/cohorts' %>
+    </div>
+</div>

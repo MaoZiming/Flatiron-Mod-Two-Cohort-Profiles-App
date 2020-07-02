@@ -1,11 +1,12 @@
-html {
-    background-color: #56baed;
-  }
+body {
+  background: #654ea3;
+  background: -webkit-linear-gradient(to right, #654ea3, #eaafc8);
+  background: linear-gradient(to right, #654ea3, #eaafc8);
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+}
   
-  body {
-    font-family: "Poppins", sans-serif;
-    height: 100vh;
-  }
   
   a {
     color: #92badd;
@@ -148,6 +149,16 @@ html {
     color: #cccccc;
   } 
   
+  .label_small {
+    margin: 0;
+    display: block;
+    font-size: x-small;
+  }
+
+  label {
+   margin-right: 5px;
+   margin-left: 5px;
+  }
   /* ANIMATIONS */
   
   /* Simple CSS3 Fade-in-down Animation */

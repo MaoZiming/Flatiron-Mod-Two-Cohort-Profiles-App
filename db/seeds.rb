@@ -27,9 +27,9 @@ cohort4 = Cohort.create(name: "cohort4")
 # user5 = User.create(name: "user5", cohort_id: cohort3.id, password: '333', password_confirmation: '333')
 # user6 = User.create(name: "user6", cohort_id: cohort3.id, password: '444', password_confirmation: '444')
 
-# language1 = Language.create(name: "language1")
-# language2 = Language.create(name: "language2")
-# language3 = Language.create(name: "language3")
+language1 = Language.create(name: "language1")
+language2 = Language.create(name: "language2")
+language3 = Language.create(name: "language3")
 
 # user1.languages << language1
 # user1.languages << language2

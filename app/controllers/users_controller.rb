@@ -15,14 +15,10 @@ class UsersController < ApplicationController
           @user.save
           # byebug
           session[:user_id] = @user.id
-          redirect_to '/show'
+          redirect_to '/profiles/new'
         else
           redirect_to "/signup"
         end
-    end
-
-    def show
-      @user = User.find(session[:user_id])
     end
 
     def user_params

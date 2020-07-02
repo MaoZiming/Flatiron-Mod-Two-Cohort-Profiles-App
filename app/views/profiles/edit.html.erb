@@ -4,27 +4,39 @@
 <div class="wrapper fadeInDown">
 <div id="formContent">
 
-
 <%= form_with url: "/profiles/edit", method: "post" do |f| %>
 
-<%= f.text_field :name, value: @profile.name %>
 
+<%= f.text_field :name, value: @profile.name, placeholder: "name" %>
+
+<%= f.label "Name", class: "label_small" %>
 <%= f.text_field :age, value: @profile.age%>
-
+<%= f.label "Age", class: "label_small" %>
 <%= f.text_field :university, value: @profile.university %>
-
+<%= f.label "University", class: "label_small" %>
 <%= f.text_field :city, value: @profile.city %>
-
+<%= f.label "City", class: "label_small" %>
 
 <%= f.text_field :bio, value: @profile.bio  %>
-
-<%= f.text_field :major, value: @profile.major  %>
-
-<br><br>
-
-<%= f.collection_select :cohort_id, Cohort.all, :id, :name, {:selected => @profile.cohort.id} %>
+<%= f.label "Bio", class: "label_small" %>
 
 <br>
+<%= f.file_field :image  %>
+<%= f.label "Profile Picture", class: "label_small" %>
+
+<%= f.text_field :major, value: @profile.major  %>
+<%= f.label "major", class: "label_small" %>
+
+<br>
+
+<%= f.collection_select :cohort_id, Cohort.all, :id, :name, {:selected => @profile.cohort.id} %>
+<%= f.label "Cohort", class: "label_small" %>
+<br>
+
+<%= f.collection_check_boxes :language_ids, Language.all, :id, :name, { checked: @profile.languages.map(&:id) } %>
+<%= f.label :programming_languages, class: "label_small" %>
+<br>
+
 
 <%= f.submit "Update Profile"%>
 

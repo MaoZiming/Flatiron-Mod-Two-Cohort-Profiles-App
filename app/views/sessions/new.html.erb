@@ -5,13 +5,13 @@
 <div id="formContent">
 <%= form_with url: "/login", method: "post" do |f| %>
 
-<%= f.text_field :username, class: "fadeIn first", placeholder: "username" %>
+<%= f.text_field :username, class: "fadeIn", placeholder: "username" %>
 <br>
-<%= f.password_field :password, class: "fadeIn second", placeholder: "password" %>
+<%= f.password_field :password, class: "fadeIn", placeholder: "password" %>
 
 <br>
 <br>
-<%= f.submit "Login", class: "fadeIn third"%>
+<%= f.submit "Login", class: "fadeIn"%>
 
  <div id="formFooter">
  
