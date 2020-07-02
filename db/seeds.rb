@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require 'faker'
+
 Cohort.destroy_all
 User.destroy_all
 ProfileLanguage.destroy_all
@@ -14,11 +16,10 @@ Language.destroy_all
 Profile.destroy_all
 # Clear the database
 
-cohort1 = Cohort.create(name: "cohort1")
-cohort2 = Cohort.create(name: "cohort2")
-cohort3 = Cohort.create(name: "cohort3")
-cohort4 = Cohort.create(name: "cohort4")
-
+cohort1 = Cohort.create(name: "Yale-Flatiron 2020")
+cohort2 = Cohort.create(name: "Yale-Flatiron 2019")
+cohort3 = Cohort.create(name: "Yale-Flatiron 2018")
+cohort4 = Cohort.create(name: "Yale-Flatiron 2017")
 # # in seed file, if we want to create encrypted password, we have to use password: ... , password_confirmation: ...
 # user1 = User.create(name: "user1", cohort_id: cohort1.id, password: '123', password_confirmation: '123')
 # user2 = User.create(name: "user2", cohort_id: cohort1.id, password: '321', password_confirmation: '321')
@@ -27,24 +28,50 @@ cohort4 = Cohort.create(name: "cohort4")
 # user5 = User.create(name: "user5", cohort_id: cohort3.id, password: '333', password_confirmation: '333')
 # user6 = User.create(name: "user6", cohort_id: cohort3.id, password: '444', password_confirmation: '444')
 
-language1 = Language.create(name: "language1")
-language2 = Language.create(name: "language2")
-language3 = Language.create(name: "language3")
+#generate 20 users
+(1..10).each do |id|
+    User.create(
+        id: id,
+        username: Faker::Name.name,
+        password: "password",
+        password_confirmation: "password"
+        )
+end 
 
-# user1.languages << language1
-# user1.languages << language2
-# user2.languages << language3
-# user3.recommenders << user4
+
+
+   
+
+language1 = Language.create(name: "Python")
+language2 = Language.create(name: "Ruby")
+language3 = Language.create(name: "Java")
+language4 = Language.create(name: "HTML")
+
+
 
 # # Add user4 to the list of users that recommend user3;
 # # In other words, user4 recommends user3, user3 is recommended by user4
 # # This is the equivalent of user4.recommendees << user3
 
-# user4.recommenders << user1
-# user1.recommenders << user2
-# user1.recommenders << user3
-# user1.recommenders << user4
 
-# profile1 = Profile.create(age: 13, bio: "this is profile1", major: "cs", user_id: user1.id)
-# profile2 = Profile.create(age: 23, bio: "this is profile2", major: "english", user_id: user1.id)
-# profile3 = Profile.create(age: 43, bio: "this is profile3", major: "cs", user_id: user2.id)
+
+# profile1 = Profile.create(age: 13, bio: "this is profile1", major: "cs", user_id: User.all.sample.id)
+# profile2 = Profile.create(age: 23, bio: "this is profile2", major: "english", user_id: User.all.sample.id)
+# profile3 = Profile.create(age: 43, bio: "this is profile3", major: "cs", user_id: User.all.sample.id)
+
+(1..5).each do |id|
+    Profile.create(
+        name: Faker::Name.name,
+        age: (18..100).to_a.sample,
+        bio: Faker::Hipster.paragraph,
+        city: Faker::Nation.capital_city,
+        major: Faker::Educator.subject,
+        university: Faker::Educator.university,
+        cohort_id: cohort1.id,
+        user_id: User.all.sample.id,
+        # image: "../download.jpeg",
+        language_ids: [language1.id, language2.id]
+        )
+
+
+end 
