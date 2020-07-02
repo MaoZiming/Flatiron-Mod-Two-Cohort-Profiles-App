@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
 
         if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
-            # byebug
+            byebug
             if !@user.profile
                 redirect_to '/profiles/new'
             else

@@ -28,9 +28,12 @@ class ProfilesController < ApplicationController
     end
 
     def show
-      
+
       @user = User.find(session[:user_id])
       @profile = @user.profile
+      if @profile.nil?
+        redirect_to '/profiles/new'
+      end
       # byebug
     end
 
@@ -56,6 +59,9 @@ class ProfilesController < ApplicationController
     def search
       @profile = Profile.find(params[:id])
       @user = User.find(session[:user_id])
+      if @user.profile.nil?
+        redirect_to '/profiles/new'
+      end      
       if @profile.user == @user
         redirect_to '/profiles/show'
       end
@@ -68,12 +74,6 @@ class ProfilesController < ApplicationController
       r = Recommendation.create(recommender_id: user_profile.id, recommendee_id: profile.id, content: params.permit(:content).require('content'))
       # byebug
       redirect_to "/profiles/#{profile.id}"
-    end
-      
-
-    def filter
-      # @q = Profile.ransack(params[:q])
-      # @profile = @q.result(distinct: true)    
     end
 
     def profile_params

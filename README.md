@@ -9,9 +9,8 @@ To do list:
 - More class methods (required by the project guideline)
     - It could be display number of languages, colleges, on the cohort show page
 - Sign-up, Login page validation & display error messages
-- Profiles/show page requires login and completed profiles
-- Cannot Login after signup? 
-
+- Update pictures
+- Bug login has to reenter the profiles info?
 
 *******************
 

@@ -20,7 +20,7 @@
                         <p class="small mb-4"> <i class="fa fa-map-marker mr-2"></i>
                         <b>Languages: </b>
                         <% @profile.languages.each do |language|%>
-                            <%= language.name %>,
+                            <%= language.name %> 
                         <% end %>
                         </p>
                     </div>
@@ -76,7 +76,7 @@
                         
                         <div class="p-4 bg-light rounded shadow-sm">
                         <p class="font-italic mb-0">
-                            Recommendee: <%= recommendee.name%>, Comments: <%= Recommendation.search_recommendation(@profile, recommendee).content%>
+                            Recommended: <%= recommendee.name%>, Comments: <%= Recommendation.search_recommendation(@profile, recommendee).content%>
                         </div>
                         <br>
                         <% end %>
@@ -88,6 +88,7 @@
                         <%= f.text_field :content, placeholder: "Add Recommendation"%>
                         
                     <%= f.submit "Submit", class: "btn btn-outline-dark"%>
+                    
                     <% end %>
                     <% end %>
 
