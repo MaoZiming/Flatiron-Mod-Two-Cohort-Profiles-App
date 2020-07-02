@@ -38,6 +38,10 @@
 <br>
 <br>
 
+<%= f.label :programming_languages %>
+<%= f.collection_check_boxes :language_id, Language.all, :id, :name %>
+<br>
+<br>
 
 <% if false %>
 <%= f.label :ruby_language, "Ruby" %>

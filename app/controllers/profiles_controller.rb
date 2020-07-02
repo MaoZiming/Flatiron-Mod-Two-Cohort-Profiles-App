@@ -28,9 +28,10 @@ class ProfilesController < ApplicationController
     end
 
     def show
-      # byebug
+      
       @user = User.find(session[:user_id])
       @profile = @user.profile
+      # byebug
     end
 
 
@@ -43,7 +44,7 @@ class ProfilesController < ApplicationController
       @user = User.find(session[:user_id])
       @profile = @user.profile
       @profile.assign_attributes(profile_params)
-
+      byebug
       if @profile.valid?
         @profile.save
         redirect_to '/profiles/show'
@@ -72,6 +73,6 @@ class ProfilesController < ApplicationController
     # end
 
     def profile_params
-      params.permit(:name, :age, :bio, :cohort_id, :major, :city, :university)
+      params.permit(:name, :age, :bio, :cohort_id, :major, :city, :university, :language_id)
     end
 end
