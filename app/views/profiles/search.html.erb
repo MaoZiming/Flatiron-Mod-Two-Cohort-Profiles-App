@@ -8,7 +8,11 @@
             <div class="px-4 pt-0 pb-4 bg-dark">
                 <div class="media align-items-end profile-header">
                     <div class="profile mr-3">
+                        <% if @profile.image.attached? %>
                         <img src="<%= url_for(@profile.image)%>" alt="..." width="130" class="rounded mb-2 img-thumbnail">
+                        <% else %>
+                        <%= image_tag("1", width: '130', class: "rounded mb-2 img-thumbnail")%>
+                        <% end %>
                     </div>
                     <div class="media-body mb-5 text-white">
                         <h4 class="mt-0 mb-0">

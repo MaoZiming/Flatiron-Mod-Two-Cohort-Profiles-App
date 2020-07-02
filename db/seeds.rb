@@ -59,7 +59,7 @@ language4 = Language.create(name: "HTML")
 # profile2 = Profile.create(age: 23, bio: "this is profile2", major: "english", user_id: User.all.sample.id)
 # profile3 = Profile.create(age: 43, bio: "this is profile3", major: "cs", user_id: User.all.sample.id)
 
-(1..5).each do |id|
+(1..10).each do |id|
     Profile.create(
         name: Faker::Name.name,
         age: (18..100).to_a.sample,
@@ -72,6 +72,19 @@ language4 = Language.create(name: "HTML")
         # image: "../download.jpeg",
         language_ids: [language1.id, language2.id]
         )
+end 
 
-
+(1..10).each do |id|
+    Profile.create(
+        name: Faker::Name.name,
+        age: (18..100).to_a.sample,
+        bio: Faker::Hipster.paragraph,
+        city: Faker::Nation.capital_city,
+        major: Faker::Educator.subject,
+        university: Faker::Educator.university,
+        cohort_id: cohort2.id,
+        user_id: User.all.sample.id,
+        # image: "../download.jpeg",
+        language_ids: [language1.id, language2.id]
+    )
 end 

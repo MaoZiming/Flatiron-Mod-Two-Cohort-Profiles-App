@@ -22,6 +22,6 @@ class Profile < ApplicationRecord
     # But honestly, I won't worry too much about self-referential association, since these are out of our course syllabus.
     # validates :name, uniqueness: true
     validates :age, numericality: { greater_than: 0 }
-    validates :bio, length: { minimum: 30 }
+    validates :bio, length: { minimum: 10 }
     # validates :image, presence: true
 end
