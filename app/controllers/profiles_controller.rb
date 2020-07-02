@@ -23,6 +23,7 @@ class ProfilesController < ApplicationController
           
           redirect_to '/profiles/show'
         else
+          flash[:errors] = @profile.errors.full_messages
           redirect_to "/profiles/new"
         end
     end
@@ -52,6 +53,7 @@ class ProfilesController < ApplicationController
         @profile.save
         redirect_to '/profiles/show'
       else
+        flash[:errors] = @profile.errors.full_messages
         redirect_to "/profiles/edit"
       end
     end

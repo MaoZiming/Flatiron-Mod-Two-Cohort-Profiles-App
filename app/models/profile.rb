@@ -20,5 +20,8 @@ class Profile < ApplicationRecord
     # And because we don't actually have a separate :recommendee and :recommender classes, we have all the extra syntax, such as foreign_key and class_name
 
     # But honestly, I won't worry too much about self-referential association, since these are out of our course syllabus.
-
+    validates :name, uniqueness: true
+    validates :age, numericality: { greater_than: 0 }
+    validates :bio, length: { minimum: 100 }
+    validates :image, presence: true
 end
