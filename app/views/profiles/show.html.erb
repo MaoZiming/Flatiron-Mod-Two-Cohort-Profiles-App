@@ -65,7 +65,7 @@
                         
                         <div class="p-4 bg-light rounded shadow-sm">
                         <p class="font-italic mb-0" style="word-wrap: break-word;">
-                            <%= recommender.name%> commented on your page:  <%= Recommendation.search_recommendation(recommender,@profile).content%>
+                            <%= link_to recommender.name, "/profiles/#{recommender.id}" %> commented on your page:  <%= Recommendation.search_recommendation(recommender,@profile).content%>
                         </div>
                         <br>
                         <% end %>
@@ -79,7 +79,7 @@
                         
                         <div class="p-4 bg-light rounded shadow-sm">
                         <p class="font-italic mb-0" style="word-wrap: break-word;">
-                            Commented on <%= recommendee.name%>'s page: <br> <%= Recommendation.search_recommendation(@profile, recommendee).content%> 
+                            Commented on <%= link_to recommendee.name, "/profiles/#{recommendee.id}"%>'s page: <br> <%= Recommendation.search_recommendation(@profile, recommendee).content%> 
                             <div style="text-align: right">
                             <%= link_to 'delete', "/profiles/delete/#{Recommendation.search_recommendation(@profile, recommendee).id}", style: 'font-size: 10px'%>
                             </div>
