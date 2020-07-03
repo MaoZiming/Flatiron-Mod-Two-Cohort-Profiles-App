@@ -1,37 +1,43 @@
-# README
+# Flatiron Module Two Project: Flatiron Profiles
+# Made by Ziming Mao and Jonas Kavaliauskas
+## Short Description
 
-Update by Ziming July 2
+This app enables users to create user profiles and comment on others' profiles, through a user-friendly interface.  
 
-To do list:
 
-- User chooses not to upload the images
-- Seed files
-- More class methods (required by the project guideline)
-    - It could be display number of languages, colleges, on the cohort show page
-- Sign-up, Login page validation & display error messages
-- Update pictures
-- Bug login has to reenter the profiles info?
-- Unique username
+## Install instructions
 
-*******************
+To install the app, git clone the repository in your local directory. Run:
+```ruby
+bundle install
+```
+To install all required gems. Run:
+```ruby
+rails db:migrate 
+```
+To migrate all changes to the database. 
+```ruby
+rails db:seed
+```
+To migrate seed the database. 
 
-Update by Ziming June 29
+Finally, run 
+```ruby
+rails s
+```
+To run the app. 
 
-- Created Model, migration, and seed files
+## Contributor's guide
 
-- I have created models for Cohort, Language, Profile, Recommendation, User, UserLanguage  Language, User are in many-to-many relationship, the joiner class is UserLanguage
-- User belongs to a Cohort
-- Profile belongs to a User, a User can have multiple Profiles (for example, one profile for Flatiron, one profile for Yale)
+Pull requests are welcome. Please make sure that your PR is well-scoped.
+For major changes, please open an issue first to discuss what you would like to change.
 
-************
+## License
 
-- The self-referential :recommendation model is working. I have written explanation as comments in the model files. Please see recommendation.rb and user.rb! 
+MIT License
 
-************
+Copyright (c) 2020 Jonas Kavaliauskas, Ziming Mao
 
-- Password!
-- I just follows the using has_secure lab
-- The password field is named password_digest
-- When we create the user in the seed file, we need to use password: "123", password_confirmation: '123" 
-to create encrypted password!
-See also at https://stackoverflow.com/questions/30894508/create-user-with-encrypted-password-with-dbseed
+> Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: 
+
+> The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
