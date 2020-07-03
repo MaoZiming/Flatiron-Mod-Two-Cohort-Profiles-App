@@ -1,9 +1,15 @@
 # Flatiron Module Two Project: Flatiron Profiles
-# Made by Ziming Mao and Jonas Kavaliauskas
+## Made by Ziming Mao and Jonas Kavaliauskas
 ## Short Description
 
 This app enables users to create user profiles and comment on others' profiles, through a user-friendly interface.  
 
+## Features
+- Upload Profile pictures
+- Comment on others' profiles
+- See history of past comments
+- Check members of a cohort
+- Update profiles
 
 ## Install instructions
 
