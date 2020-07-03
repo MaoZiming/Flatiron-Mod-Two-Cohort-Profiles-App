@@ -78,6 +78,11 @@ class ProfilesController < ApplicationController
       redirect_to "/profiles/#{profile.id}"
     end
 
+    def delete
+
+      Recommendation.find(params[:id]).destroy
+      redirect_to '/profiles/show'
+    end
     def profile_params
       params[:age] = params[:age].to_i
       params.permit(:name, :age, :bio, :cohort_id, :major, :city, :university,  :image, language_ids: [])

@@ -65,7 +65,7 @@
                         
                         <div class="p-4 bg-light rounded shadow-sm">
                         <p class="font-italic mb-0" style="word-wrap: break-word;">
-                            <%= recommender.name%> commented:  <%= Recommendation.search_recommendation(recommender,@profile).content%>
+                            <%= recommender.name%> commented on your page:  <%= Recommendation.search_recommendation(recommender,@profile).content%>
                         </div>
                         <br>
                         <% end %>
@@ -74,12 +74,15 @@
                     
                     <% if !@profile.recommendees.empty? %>
                     <br>
-                        <h5 class="mb-3">Recommended: <%= @profile.recommendees.size %></h5>
+                        <h5 class="mb-3">Recommendee: <%= @profile.recommendees.size %></h5>
                         <% @profile.recommendees.each do |recommendee| %>
                         
                         <div class="p-4 bg-light rounded shadow-sm">
                         <p class="font-italic mb-0" style="word-wrap: break-word;">
-                            Recommended: <%= recommendee.name%>, Comments: <%= Recommendation.search_recommendation(@profile, recommendee).content%>
+                            Commented on <%= recommendee.name%>'s page: <br> <%= Recommendation.search_recommendation(@profile, recommendee).content%> 
+                            <div style="text-align: right">
+                            <%= link_to 'delete', "/profiles/delete/#{Recommendation.search_recommendation(@profile, recommendee).id}", style: 'font-size: 10px'%>
+                            </div>
                         </div>
                         <br>
                         <% end %>

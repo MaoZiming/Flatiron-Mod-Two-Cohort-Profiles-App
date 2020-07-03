@@ -44,9 +44,13 @@ end
 
 language1 = Language.create(name: "Python")
 language2 = Language.create(name: "Ruby")
-language3 = Language.create(name: "Java")
+language3 = Language.create(name: "Javascript")
 language4 = Language.create(name: "HTML")
+language5 = Language.create(name: "C")
+language6 = Language.create(name: "SQL")
 
+languages = [language1.id, language2.id, language3.id, language4.id,
+language5.id, language6.id]
 
 
 # # Add user4 to the list of users that recommend user3;
@@ -60,7 +64,7 @@ language4 = Language.create(name: "HTML")
 # profile3 = Profile.create(age: 43, bio: "this is profile3", major: "cs", user_id: User.all.sample.id)
 
 (1..10).each do |id|
-    Profile.create(
+    p = Profile.create(
         name: Faker::Name.name,
         age: (18..100).to_a.sample,
         bio: Faker::Hipster.paragraph,
@@ -70,12 +74,14 @@ language4 = Language.create(name: "HTML")
         cohort_id: cohort1.id,
         user_id: User.all.sample.id,
         # image: "../download.jpeg",
-        language_ids: [language1.id, language2.id]
+        language_ids: rand(1..6).times.map { languages.sample }
         )
+    s = rand(1..10).to_s + ".png"
+    p.image.attach(io: File.open(Rails.root + 'app/assets/images/' + s), filename: s)
 end 
 
 (1..10).each do |id|
-    Profile.create(
+    p = Profile.create(
         name: Faker::Name.name,
         age: (18..100).to_a.sample,
         bio: Faker::Hipster.paragraph,
@@ -85,6 +91,8 @@ end
         cohort_id: cohort2.id,
         user_id: User.all.sample.id,
         # image: "../download.jpeg",
-        language_ids: [language1.id, language2.id]
+        language_ids: rand(1..6).times.map { languages.sample }
     )
+    s = rand(1..10).to_s + ".png"
+    p.image.attach(io: File.open(Rails.root + 'app/assets/images/' + s), filename: s)
 end 

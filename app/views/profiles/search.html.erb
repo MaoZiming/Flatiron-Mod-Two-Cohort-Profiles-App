@@ -78,7 +78,7 @@
                         
                         <div class="p-4 bg-light rounded shadow-sm">
                         <p class="font-italic mb-0 " style="word-wrap: break-word;">
-                            Recommended: <%= recommendee.name%>, Comments: <%= Recommendation.search_recommendation(@profile, recommendee).content%>
+                            <%= @profile.name%> commended on <%= recommendee.name%>'s page: <%= Recommendation.search_recommendation(@profile, recommendee).content%>
                         </div>
                         <br>
                         <% end %>

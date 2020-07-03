@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get "/profiles/show", to: "profiles#show"
   get "/profiles/edit", to: "profiles#edit"
   post "/profiles/edit", to: "profiles#update"
+  get "/profiles/delete/:id", to: "profiles#delete"
 
   get '/profiles/:id', to: "profiles#search"
   post '/profiles/:id', to: "profiles#recommend"

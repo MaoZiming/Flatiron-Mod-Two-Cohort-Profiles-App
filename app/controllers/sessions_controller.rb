@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
                 redirect_to '/profiles/show'
             end
         else
-            flash[:errors] = "Password/Username is wrong"
+            flash[:errors] = "Password or Username is wrong"
             redirect_to "/login"
         end
     end
