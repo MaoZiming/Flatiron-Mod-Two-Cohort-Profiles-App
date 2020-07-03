@@ -2,7 +2,7 @@
 ## Made by Ziming Mao and Jonas Kavaliauskas
 ## Short Description
 
-This app enables users to create user profiles and comment on others' profiles, through a user-friendly interface.  
+This app enables users to create user profiles and comment on others' profiles, through a user-friendly interface. Demonstration video: https://www.youtube.com/watch?v=7GDAodFR5Fw
 
 ## Features
 - Upload Profile pictures
