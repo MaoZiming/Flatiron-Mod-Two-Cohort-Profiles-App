@@ -1,4 +1,4 @@
-# Flatiron Module Two Project: Flatiron Profiles
+# Flatiron Module Two Project: Cohort Profiles
 ## Made by Ziming Mao and Jonas Kavaliauskas
 ## Short Description
 
